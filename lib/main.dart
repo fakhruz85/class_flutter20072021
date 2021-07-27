@@ -10,7 +10,33 @@ class MyAppTest extends StatelessWidget {
     return MaterialApp(
         title: 'Hello World Demo Application',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: MyHomePageIcon(title: 'Home Page'));
+        home: MyHomePageContainer(title: 'Home Page'));
+  }
+}
+
+class MyHomePageContainer extends StatelessWidget {
+  MyHomePageContainer({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(this.title)),
+      body: Container(
+        decoration: BoxDecoration(color: Colors.green),
+        padding: EdgeInsets.all(50),
+        child: Container(
+            decoration: BoxDecoration(color: Colors.red),
+            padding: EdgeInsets.all(25),
+            child: Text(
+              'Hello World',
+              style: TextStyle(
+                  color: Colors.black, letterSpacing: 0.8, fontSize: 20),
+              textDirection: TextDirection.ltr,
+            )),
+      ),
+    );
   }
 }
 
